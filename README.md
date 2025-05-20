@@ -1,27 +1,86 @@
-# Temperature
+# 🌡️ Application Température – Angular + Express
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.7.
+Bienvenue dans ce projet fullstack permettant la gestion d'un compte utilisateur et l'affichage de températures. Cette application est composée :
 
-## Development server
+- d’un **serveur Express** (`/serveur-express`) pour la gestion de l'API REST
+- d’un **client Angular** (`/temperature`) pour l’interface utilisateur
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## 📁 Structure du projet
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```
+├── serveur-express       # Serveur Node.js + Express (API)
+│   └── ...               
+├── temperature           # Client Angular (frontend)
+│   └── ...
+├── README.md             # Ce fichier
+```
 
-## Build
+---
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🚀 Fonctionnalités
 
-## Running unit tests
+### 🏠 Page d’accueil
+- Accès à une **surprise** cachée 😉
+- Redirection vers **connexion** ou **inscription** selon l’état de l’utilisateur
+- **Déconnexion** : bouton de logout
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### 🔐 Authentification
+- **Inscription** : création d’un compte avec email et mot de passe
+- **Connexion** : authentification via email/mot de passe
 
-## Running end-to-end tests
+### 👤 Gestion du profil
+- Modification de **l’adresse email**
+- Changement du **mot de passe**
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### 🌡️ Températures
+- Accessible via : `https://temp.3il-rodez-projets.site/api`
+- Voir la **liste des températures**
+- **Ajouter**, **supprimer** des entrées
 
-## Further help
+## ⚙️ Lancement du projet
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### 1. Backend (Express)
+
+```bash
+cd serveur-express
+npm install
+npm start
+```
+
+Par défaut, le backend est accessible sur : `http://localhost:3000/api`
+
+### 2. Frontend (Angular)
+
+```bash
+cd temperature
+npm install
+ng serve
+```
+
+Accès à l'interface : `http://localhost:4200`
+ne pas oublier de changer   private apiUrl = 'https://temp.3il-rodez-projets.site/api'; dans auth.service.ts
+---
+
+## 🌐 Déploiement
+
+L'application est hébergée sur :
+
+- 🌍 [https://temp.3il-rodez-projets.site](https://temp.3il-rodez-projets.site) – Frontend Angular
+- 🛠️ [https://temp.3il-rodez-projets.site/api](https://temp.3il-rodez-projets.site/api) – API ExpressJS
+
+---
+
+## 💡 Conseil
+
+> N'oubliez pas de découvrir la **surprise** sur la page d'accueil 😄
+
+---
+
+## 👨‍💻 Tech Stack
+
+- **Frontend** : Angular
+- **Backend** : ExpressJS (Node.js)
+- **BDD** : MongoDB
+- **Web server** : Nginx
