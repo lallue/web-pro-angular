@@ -1,0 +1,42 @@
+[
+  {
+    "temperature": -6,
+    "timestamp": "2025-05-06T18:37:21.542Z",
+    "unit": "°C"
+  },
+  {
+    "temperature": -6,
+    "timestamp": "2025-05-06T18:37:21.667Z",
+    "unit": "°C"
+  },
+  {
+    "temperature": 120,
+    "timestamp": "2025-05-11T11:16:44.741Z",
+    "unit": "°C"
+  },
+  {
+    "temperature": -12,
+    "timestamp": "2025-05-11T11:16:58.256Z",
+    "unit": "°C"
+  },
+  {
+    "temperature": 1,
+    "timestamp": "2025-05-11T11:25:44.443Z",
+    "unit": "°C"
+  },
+  {
+    "temperature": 1,
+    "timestamp": "2025-05-11T11:25:46.205Z",
+    "unit": "°C"
+  },
+  {
+    "temperature": 1,
+    "timestamp": "2025-05-11T11:25:46.852Z",
+    "unit": "°C"
+  },
+  {
+    "temperature": 1,
+    "timestamp": "2025-05-11T11:25:47.688Z",
+    "unit": "°C"
+  }
+]

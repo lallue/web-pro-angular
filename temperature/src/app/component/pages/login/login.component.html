@@ -1,0 +1,16 @@
+<div class="login-container">
+  <h2 class="login-title">Connexion</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="input-group">
+      <input type="email" [(ngModel)]="email" name="email" required placeholder="Email" class="input-field" />
+    </div>
+    <div class="input-group">
+      <input type="password" [(ngModel)]="password" name="password" required placeholder="Mot de passe"
+        class="input-field" />
+    </div>
+    <button type="submit" class="submit-btn">Se connecter</button>
+  </form>
+
+  <!-- Ajoute un lien vers la page d'inscription -->
+  <p>Pas encore de compte ? <a (click)="goToSignup()">Créer un compte</a></p>
+</div>

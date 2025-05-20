@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  express:
+    build:
+      context: ./serveur-express
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./serveur-express:/app
+    depends_on:
+      - mongodb
+    environment:
+      - MONGO_URI=mongodb://mongodb:27017/temperature_app
+
+  angular:
+    build:
+      context: ./temperature
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./temperature:/app
+    environment:
+      - NODE_ENV=development
+
+  mongodb:
+    image: mongo:6.0
+    restart: always
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodb_data:/data/db
+
+volumes:
+  mongodb_data:

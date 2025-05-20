@@ -1,0 +1,56 @@
+<div class="container">
+    <h2>Historique des Températures</h2>
+
+    <div class="unit-toggle">
+        <label>
+            <input type="radio" name="unit" value="°C" [(ngModel)]="displayUnit" /> Afficher en °C
+        </label>
+        <label>
+            <input type="radio" name="unit" value="°F" [(ngModel)]="displayUnit" /> Afficher en °F
+        </label>
+    </div>
+    <div class="edit-toggle">
+        <button [ngClass]="{ 'active': isEditMode }" (click)="toggleEditMode()">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M11 5H6a2 2 0 00-2 2v11.5A1.5 1.5 0 005.5 20H17a2 2 0 002-2v-5m-6-8l5 5m0 0L9.5 19H4v-5.5L14 5z" />
+            </svg>
+            {{ isEditMode ? 'Verrouiller la disposition' : 'Activer l\'édition' }}
+        </button>
+    </div>
+
+
+    <gridster [options]="options" [ngClass]="{ 'edit-mode': isEditMode }">
+        <gridster-item *ngFor="let item of dashboard" [item]="item">
+            <ng-container [ngSwitch]="item.id">
+                <div *ngSwitchCase="'temp'" class="temperature-section">
+                    <ul class="temperature-list scrollable-list">
+                        <li *ngFor="let t of fetchedData">
+                            <span>{{ getDisplayTemperature(t) }}</span>
+                            <span class="timestamp">{{ t.timestamp | date: 'short' }}</span>
+                            <button class="delete-btn no-drag" (click)="deleteEntry(t)">✖</button>
+                        </li>
+                    </ul>
+                    <div class="form-section">
+                        <input class="no-drag" type="number" [(ngModel)]="newTemp" placeholder="Nouvelle température" />
+                        <div class="toggle-switch">
+                            <label class="switch">
+                                <input class="no-drag" type="checkbox" [(ngModel)]="isFahrenheit" />
+                                <span class="slider round"></span>
+                            </label>
+                            <span class="unit-labels">
+                                <span [class.active]="!isFahrenheit">°C</span> /
+                                <span [class.active]="isFahrenheit">°F</span>
+                            </span>
+                        </div>
+                        <button class="no-drag" (click)="sendPost()">Envoyer</button>
+                    </div>
+                </div>
+
+                <div *ngSwitchCase="'chart'" class="chart-section">
+                    <app-temperature-chart [data]="fetchedData.slice()" [unit]="displayUnit"></app-temperature-chart>
+                </div>
+            </ng-container>
+        </gridster-item>
+    </gridster>
+</div>

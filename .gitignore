@@ -1,0 +1,46 @@
+# Node modules
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Logs
+logs
+*.log
+log/
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Environment files
+.env
+.env.*.local
+
+# Angular output
+/dist/
+/out-tsc/
+/.angular/cache/
+
+# Angular IDE and tooling
+.angular/
+.idea/
+.vscode/
+
+# Angular build artifacts
+*.js
+*.js.map
+
+# Coverage reports
+/coverage/
+
+# Build artifacts for Express if using TypeScript
+/build/
+/dist-server/
+
+# Optional: PM2 logs if using pm2
+.pnpm-debug.log

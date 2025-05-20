@@ -1,0 +1,40 @@
+<div class="home-container">
+  <h1>Connexion au serveur de température</h1>
+
+  <div *ngIf="!isAuthenticated" class="login-section">
+    <button (click)="router.navigate(['/login'])">Se connecter</button>
+  </div>
+
+  <div *ngIf="isAuthenticated" class="connection-section">
+    <input
+      type="text"
+      [(ngModel)]="url"
+      placeholder="https://temp.3il-rodez-projets.site/api"
+    />
+    <button (click)="checkUrl()">Valider</button>
+    <button class="logout-btn" (click)="logout()">Déconnexion</button>
+  </div>
+
+  <div class="update-form" *ngIf="isAuthenticated">
+    <h2>Mettre à jour vos informations</h2>
+    <form (ngSubmit)="updateUser()" #updateForm="ngForm">
+      <input
+        type="email"
+        [(ngModel)]="updateData.email"
+        name="email"
+        placeholder="Nouvel email"
+      />
+      <input
+        type="password"
+        [(ngModel)]="updateData.password"
+        name="password"
+        placeholder="Nouveau mot de passe"
+      />
+      <button type="submit" [disabled]="!updateData.email && !updateData.password">
+        Mettre à jour
+      </button>
+    </form>
+  </div>
+</div>
+
+<app-konami (activatedEvent)="onKonamiActivated()"></app-konami>
